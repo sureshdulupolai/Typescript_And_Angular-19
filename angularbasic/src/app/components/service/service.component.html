@@ -1,0 +1,19 @@
+<h3>Products List</h3>
+
+<div>
+    <p *ngFor="let p of products" class="bg-warning m-3 p-2 text-center">{{ p.id }} - {{ p.name }}</p>
+</div>
+
+<button class="btn btn-primary mx-2" (click)="getProductById(101)">101</button>
+<button class="btn btn-primary mx-2" (click)="getProductById(102)">102</button>
+<button class="btn btn-primary mx-2" (click)="getProductById(103)">103</button>
+<button class="btn btn-primary mx-2" (click)="getAllProduct()">All Products</button>
+
+
+<hr>
+<h3>Products Categories</h3>
+
+<div>
+    <p *ngFor="let p of categories" class="bg-warning m-3 p-2 text-center">{{ p.id }} - {{ p.name }}</p>
+</div>
+<button class="btn btn-primary mx-2" (click)="toggleCategories()">All Products</button>

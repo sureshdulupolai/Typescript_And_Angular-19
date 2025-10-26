@@ -1,0 +1,40 @@
+<div class="container">
+    <ol>
+        <li>One Way Data Binding</li>
+        <ul>
+            <li>Interpolation</li>
+            <div>
+                <p>My Name is : {{ name }}</p>
+                <p>My age is: {{ age }}</p>
+            </div>
+            <li>Event Binding</li>
+            <div>
+                 <!-- (click)="showAlert() -->
+                <button class="btn btn-primary" (click)="showAlert()">click</button>
+            </div>
+            <li>Property Binding</li>
+            <div>
+                <!-- 
+                [] demand for a variable value in value field
+                key=value, [key]="value" => value is a variable that can be create in class
+                -->
+                <!-- name => name is a variable that set in class property -->
+                <!-- <input type="text" [value]="suresh"> can assign directily name in input value -->
+                <!-- <input type="text" [value]="'suresh'"> inside " " use ' ' cote to assign name in input directily -->
+
+                <input type="text" [value]="name" [placeholder]="placeholder">
+                <button class="btn btn-primary mx-2" (click)="changePlaceHolder('Python')">Python</button>
+                <button class="btn btn-primary mx-2" (click)="changePlaceHolder('Javascript')">Javascript</button>
+            </div>
+
+            <li>Style Binding</li>
+            <h4 [style.color]="color">Style Binding</h4>
+            <button class="btn btn-primary mx-2" (click)="buttonColor('green')">Javascript</button>
+            <button class="btn btn-primary mx-2" (click)="buttonColor('pink')">Javascript</button>
+            <button class="btn btn-primary mx-2" (click)="buttonColor('blue')">Javascript</button>
+        </ul>
+        <li>Two Way Data binding</li>
+        <input type="text" [(ngModel)]="username" />
+        <h1>{{ username }}</h1>
+    </ol>
+</div>

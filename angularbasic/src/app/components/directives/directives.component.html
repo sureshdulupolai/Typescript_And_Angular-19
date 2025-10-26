@@ -1,0 +1,133 @@
+<h1 class="ms-3">Attribute Directives</h1>
+<p class="ms-3">ngStyle, ngClass, ngModel</p>
+<hr>
+
+<p [ngClass]="['m-3', 'p-3', 'bg-warning']">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, esse voluptatem voluptatibus est obcaecati error non suscipit animi, tempore officiis voluptas consequuntur blanditiis quaerat optio excepturi, alias harum fuga voluptatum?
+</p>
+<p [ngClass]="{'bg-success' : false, 'bg-danger' : true, 'm-3' : true, 'p-3' : true, 'text-center' : true, 'text-white' : true}">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, deleniti est eum asperiores natus aperiam neque incidunt aut molestiae aliquid aliquam similique earum quisquam, eos ipsa tenetur obcaecati dicta corrupti?
+</p>
+
+
+<div class="card mb-3 m-3" style="max-width: 18rem;" [ngClass]="{'text-bg-dark' : darkTheme, 'text-bg-info': !darkTheme}">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+  </div>
+</div>
+
+<button class="btn btn-primary ms-3" (click)="toogleTheme()">Change Theme</button>
+
+
+<hr>
+
+<p [ngStyle]="styles()">
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil aperiam tempora sed cum at a consectetur sapiente exercitationem assumenda explicabo eos, esse voluptatem doloremque eligendi. Ea quas minus obcaecati voluptatum?  
+</p>
+<button class="btn btn-primary ms-3" (click)="changeSize('20px')">20px</button>
+<button class="btn btn-primary ms-3" (click)="changeSize('22px')">22px</button>
+<button class="btn btn-primary ms-3" (click)="changeSize('25px')">55px</button>
+
+
+<hr>
+
+<h1 class="ms-3">Structural Directives</h1>
+<p class="ms-3">ngIf, ngFor</p>
+
+<hr>
+
+<h4 class="ms-3">Only If</h4>
+<p *ngIf="status" class="ms-3">
+    If Block..., if status value = true then you can this paragraph. if it's false then you can se the para
+</p>
+
+
+<hr>
+
+<h4 class="ms-3">If Else</h4>
+<ng-container *ngIf="loggedIn; then block1 else block2"></ng-container>
+<ng-template #block1>
+    <p class="bg-warning m-3 p-3">
+        your are loggedIn
+    </p>
+</ng-template>
+<ng-template #block2>
+    <p class="bg-danger m-3 p-3 text-white">
+        you are loggedOut
+    </p>
+</ng-template>
+<button class="btn btn-outline-success ms-3" (click)="toggleLoggedIn()">Click Me</button>
+
+<hr>
+
+
+<ul class="list-group mb-3">
+  <li class="list-group-item ms-5 me-5" *ngFor="let x of colors">{{ x }}</li>
+</ul>
+
+<hr>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-4" *ngFor="let todo of todos">
+
+            <div class="bg-warning p-3 text-center mt-3">
+                <p>
+                    <strong>Todo:</strong> {{ todo.todo }}
+                    <span class="badge bg-dark ms-2" *ngIf="todo.completed">completed</span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container my-5">
+  <h1 class="text-center mb-4">📒 My Notes</h1>
+
+  <div class="row g-4" id="notes-container">
+    <div class="col-md-4" *ngFor="let n of notes">
+      <div class="card shadow-sm h-100 border-0 rounded-3">
+        <div class="card-body">
+          <h5 class="card-title d-flex justify-content-between align-items-center">
+            {{ n.title }}
+            <span *ngIf="n.pinned" class="badge bg-warning text-dark">📌 Pinned</span>
+          </h5>
+          <p class="card-text text-muted">{{ n.content }}</p>
+        </div>
+        <div class="card-footer bg-light d-flex justify-content-between">
+          <span class="text-primary fw-bold">👤 {{ n.username }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-4" *ngFor="let c of comments">
+
+      <div class="bg-warning p-3 text-center mt-3">
+        <p>
+          <strong>Comment:</strong> {{ c.body }}
+        </p>
+        <p>
+          <strong>Likes:</strong> {{ c.likes }}
+        </p>
+        <p>
+          <strong>User:</strong> {{ c.user.fullName }} ({{ c.user.username }})
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<p>p works!</p>
+
+<button class="btn btn-primary" (click)="changeShowChild()">Show or Hide Chile</button>
+<app-q [data]="parentData" *ngIf="showChild">
+    <!-- sending html code to child class -->
+    <!-- ng-content to access in child parent -->
+    <h1>Content From Parent</h1>
+</app-q>
+
+<button class="btn btn-primary ms-3" (click)="chanageParentData('A')">A</button>
+<button class="btn btn-primary ms-2" (click)="chanageParentData('B')">B</button>
+<button class="btn btn-primary ms-2" (click)="chanageParentData('C')">C</button>
